@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 英語角 | 2026 English Corner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Special+Elite&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="nav-mark">ENGLISH CORNER · 英語角</a>
+    <button class="lang-toggle" id="langToggle">EN</button>
+  </div>
+</nav>
+
+<header class="hero container">
+  <p class="host-line">
+    <span data-zh>東海大學文學院英語語言中心(ELC)</span>
+    <span data-en>English Language Center (ELC), College of Liberal Arts, Tunghai University</span>
+  </p>
+  <h1>
+    <span data-zh>2026 英語角</span>
+    <span data-en>2026 English Corner</span>
+  </h1>
+  <p class="subtitle">
+    <span data-zh>六場活動,一段學習英語、認識世界的旅程。</span>
+    <span data-en>Six events. One journey of learning English and exploring the world.</span>
+  </p>
+
+  <div class="postcard">
+    <div class="postcard-video" id="heroVideo"></div>
+    <p class="postcard-caption">
+      <span data-zh>精華影片</span><span data-en>Highlight Reel</span>
+    </p>
+  </div>
+</header>
+
+<section class="container">
+  <div class="section-heading">
+    <span class="eyebrow">Six Activities</span>
+    <h2><span data-zh>六場活動</span><span data-en>The Six Activities</span></h2>
+  </div>
+
+  <div class="stamp-grid" id="stampGrid"></div>
+</section>
+
+<footer class="site-footer">
+  <span data-zh>東海大學文學院英語語言中心(ELC) · 英語角活動 · 2026</span>
+  <span data-en>English Language Center (ELC), College of Liberal Arts, Tunghai University · 2026</span>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+<script>
+  renderHeroVideo(document.getElementById('heroVideo'), HERO_VIDEO_URL);
+  renderStampGrid(document.getElementById('stampGrid'), ACTIVITIES);
+</script>
+</body>
+</html>
