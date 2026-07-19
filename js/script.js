@@ -69,14 +69,49 @@ function renderActivityDetail() {
   `;
   document.title = activity.titleZh + ' | English Corner';
 
-  // Photo gallery
-  const gallery = document.getElementById('gallery');
+  // Group photo (teacher + students), centered postcard-style, like homepage hero video
+  const groupPhotoContainer = document.getElementById('groupPhotoContainer');
+  if (activity.groupPhoto) {
+    groupPhotoContainer.innerHTML = `
+      <div class="postcard">
+        <div class="postcard-photo">
+          <img src="${activity.groupPhoto}" alt="${activity.titleZh}"
+            onerror="this.closest('.postcard').remove()">
+        </div>
+        <p class="postcard-caption">
+          <span data-zh>師生合照</span><span data-en>Group Photo</span>
+        </p>
+      </div>
+    `;
+  }
+
+  // Story container: either mixed text/photo "sections", or a plain photo wall (old behavior)
+  const storyContainer = document.getElementById('storyContainer');
   const galleryEmpty = document.getElementById('galleryEmpty');
-  if (activity.photos && activity.photos.length) {
-    gallery.innerHTML = activity.photos.map(src => `
+
+  function photosGridHtml(photos) {
+    return `<div class="gallery">` + photos.map(src => `
       <figure><img src="${src}" alt="${activity.titleZh}" loading="lazy"
         onerror="this.closest('figure').remove()"></figure>
-    `).join('');
+    `).join('') + `</div>`;
+  }
+
+  if (activity.sections && activity.sections.length) {
+    // New mode: ordered mix of text blocks and photo groups
+    storyContainer.innerHTML = activity.sections.map(section => {
+      if (section.type === 'text') {
+        return `<div class="story-text">
+          <p><span data-zh>${section.zh || ''}</span><span data-en>${section.en || ''}</span></p>
+        </div>`;
+      }
+      if (section.type === 'photos' && section.items && section.items.length) {
+        return photosGridHtml(section.items);
+      }
+      return '';
+    }).join('');
+  } else if (activity.photos && activity.photos.length) {
+    // Fallback: old behavior, one plain photo wall
+    storyContainer.innerHTML = photosGridHtml(activity.photos);
   } else {
     galleryEmpty.innerHTML = `<p class="empty-note">尚未加入照片，請把照片放進 images/activity-${activity.id}/ 資料夾，並在 data.js 的 photos 陣列中列出檔名。</p>`;
   }

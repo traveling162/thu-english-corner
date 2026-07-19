@@ -1,6 +1,32 @@
 // ============================================================
 // 在這裡編輯你的活動內容 / Edit your activity content here
 // ============================================================
+//
+// 【可選】想在照片中間穿插文字介紹，可以在任一活動物件裡加上
+// "sections" 陣列，取代原本單純的照片牆。順序就是畫面上的順序，
+// 文字段落跟照片群組可以自由交錯、重複幾次都可以。若不加這個欄
+// 位，會照舊用 photos 陣列顯示成一整片照片牆。
+//
+// 格式範例（可直接複製貼到任一個活動物件裡，跟 photos 同一層）：
+//
+// sections: [
+//   { type: "text", zh: "這裡放中文介紹段落。", en: "English intro paragraph here." },
+//   { type: "photos", items: ["images/activity-1/1.jpg", "images/activity-1/2.jpg"] },
+//   { type: "text", zh: "第二段文字，可以講活動的另一個環節。", en: "Second paragraph, e.g. about another part of the event." },
+//   { type: "photos", items: ["images/activity-1/3.jpg", "images/activity-1/4.jpg", "images/activity-1/5.jpg"] }
+// ],
+//
+// 只要照片檔名跟原本 images/activity-x/ 資料夾裡的一致即可，同一張
+// 照片也可以分配到不同的 photos 群組裡，不用整批貼在一起。
+//
+// 【可選】想在頁面最上方（標題下方、照片牆之前）放一張置中的大合照
+// （像首頁的精華影片那樣的明信片卡片樣式），在活動物件裡加上：
+//
+// groupPhoto: "images/activity-1/group.jpg",
+//
+// 把合照檔案放進對應的 images/activity-x/ 資料夾即可，檔名不限，
+// 只要跟這裡填的路徑一致。不加這個欄位就不會顯示這個區塊。
+// ============================================================
 
 // 首頁主打影片的 YouTube 連結 (完整網址即可)
 const HERO_VIDEO_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
@@ -16,6 +42,7 @@ const ACTIVITIES = [
     descZh: "簡短描述這場活動的內容、地點與亮點。",
     descEn: "A short description of what happened, where, and the highlights.",
     cover: "images/activity-1/cover.jpg",
+    groupPhoto: "images/activity-1/group.jpg",
     photos: [
       "images/activity-1/1.jpg",
       "images/activity-1/2.jpg",
@@ -54,6 +81,7 @@ const ACTIVITIES = [
     descZh: "簡短描述這場活動的內容、地點與亮點。",
     descEn: "A short description of what happened, where, and the highlights.",
     cover: "images/activity-2/cover.jpg",
+    groupPhoto: "images/activity-2/group.jpg",
     photos: [
       "images/activity-2/1.jpg",
       "images/activity-2/2.jpg",
@@ -117,6 +145,7 @@ const ACTIVITIES = [
     descZh: "簡短描述這場活動的內容、地點與亮點。",
     descEn: "A short description of what happened, where, and the highlights.",
     cover: "images/activity-3/cover.jpg",
+    groupPhoto: "images/activity-3/group.jpg",
     photos: [
       "images/activity-3/1.jpg",
       "images/activity-3/2.jpg",
@@ -170,6 +199,7 @@ const ACTIVITIES = [
     descZh: "簡短描述這場活動的內容、地點與亮點。",
     descEn: "A short description of what happened, where, and the highlights.",
     cover: "images/activity-4/cover.jpg",
+    groupPhoto: "images/activity-4/group.jpg",
     photos: [
       "images/activity-4/1.jpg",
       "images/activity-4/2.jpg",
@@ -256,6 +286,7 @@ const ACTIVITIES = [
     descZh: "簡短描述這場活動的內容、地點與亮點。",
     descEn: "A short description of what happened, where, and the highlights.",
     cover: "images/activity-5/cover.jpg",
+    groupPhoto: "images/activity-5/group.jpg",
     photos: [
       "images/activity-5/1.jpg",
       "images/activity-5/2.jpg",
@@ -294,6 +325,7 @@ const ACTIVITIES = [
     descZh: "簡短描述這場活動的內容、地點與亮點。",
     descEn: "A short description of what happened, where, and the highlights.",
     cover: "images/activity-6/cover.jpg",
+    groupPhoto: "images/activity-6/group.jpg",
     photos: [
       "images/activity-6/1.jpg",
       "images/activity-6/2.jpg",
