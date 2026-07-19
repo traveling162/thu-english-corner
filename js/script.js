@@ -98,10 +98,15 @@ function renderActivityDetail() {
 
   if (activity.sections && activity.sections.length) {
     // New mode: ordered mix of text blocks and photo groups
+    let textIndex = 0;
     storyContainer.innerHTML = activity.sections.map(section => {
       if (section.type === 'text') {
+        textIndex += 1;
+        const num = String(textIndex).padStart(2, '0');
         return `<div class="story-text">
+          <span class="story-index">${num}</span>
           <p><span data-zh>${section.zh || ''}</span><span data-en>${section.en || ''}</span></p>
+          <div class="story-divider"></div>
         </div>`;
       }
       if (section.type === 'photos' && section.items && section.items.length) {

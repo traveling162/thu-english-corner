@@ -325,21 +325,39 @@ img { max-width: 100%; display: block; }
 }
 
 .story-text {
-  max-width: 680px;
-  margin: 12px 0;
-  padding: 24px 0;
-  border-top: 1px solid rgba(28,43,74,0.15);
+  max-width: 620px;
+  margin: 64px auto 0;
+  text-align: center;
 }
 
 .story-text:first-child {
-  border-top: none;
-  padding-top: 0;
+  margin-top: 8px;
+}
+
+.story-index {
+  display: block;
+  font-family: var(--font-stamp);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--postmark);
+  margin-bottom: 16px;
 }
 
 .story-text p {
-  font-size: 1.05rem;
-  line-height: 1.85;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  line-height: 1.7;
   color: var(--ink);
+  margin: 0;
+}
+
+.story-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--ink);
+  opacity: 0.3;
+  margin: 32px auto 0;
 }
 
 .gallery figure {
