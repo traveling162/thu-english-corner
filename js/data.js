@@ -29,7 +29,7 @@
 // ============================================================
 
 // 首頁主打影片的 YouTube 連結 (完整網址即可)
-const HERO_VIDEO_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+const HERO_VIDEO_URL = "https://youtu.be/tKBGch1f6Zs";
 
 // 六場活動資料
 const ACTIVITIES = [
